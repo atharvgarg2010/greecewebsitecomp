@@ -5,13 +5,18 @@ import { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Routes
+  Routes,
+  
 } from "react-router-dom";
 import ScrollReveal from 'scrollreveal'
 import 'animate.css';
 import Home from './components/Home';
 import About from './components/About';
 import GreeceAboutBox from './components/GreeceAboutBox';
+import Gallery from './components/Gallery';
+import Service from './components/Service';
+import Contact from './components/Contact';
+import PackageBox from './components/PackageBox';
 function App() {
   const se = ScrollReveal({
     "origin": "top",
@@ -36,14 +41,18 @@ function App() {
   return (
     <>
       <Router>
+
         <Navbar>
         </Navbar>
 
 
         <Routes>
-          <Route exact path='/' element={<><Home></Home><About></About><GreeceAboutBox /></>}></Route>
-          <Route exact path='/about' element={<><Home></Home><About></About></>}></Route>
+          <Route exact path='/' element={<><Home></Home><About></About><GreeceAboutBox /><Gallery></Gallery><Service></Service><Contact></Contact></>}></Route>
+          <Route exact path='/about' element={<><Home></Home><About></About><Service></Service></>}></Route>
+          <Route exact path='/contact' element={<><Home></Home><Contact></Contact></>}></Route>
+          <Route exact path='/gallery' element={<><Home></Home><Gallery></Gallery></>}></Route>
         </Routes>
+
       </Router>
     </>
   );
